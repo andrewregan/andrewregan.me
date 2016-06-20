@@ -1,0 +1,231 @@
+/*
+Copyright (C) 2016  Andrew Regan
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: 'Arial';
+}
+
+section {
+  display: table;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  width: 100%;
+
+  background-color: white;
+}
+
+section:nth-of-type(1) {
+  background: url('../img/lion.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+section:nth-of-type(3) {
+  background: url('../img/state-house.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.content {
+  display: table-cell;
+  padding: 7% 7%;
+  vertical-align: middle;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+.content h3 {
+  margin: 0 0 30px 0;
+
+  font-size: 3em;
+  text-transform: lowercase;
+  font-weight: bold;
+
+  color: #3c9fa9;
+}
+
+.content h4 {
+  font-size: 22px;
+  font-weight: bold;
+
+  color: #153c40;
+}
+
+.content p {
+  font-size: 22px;
+
+  color: #153c40;
+}
+
+.content a {
+  text-decoration: none;
+
+  color: #3c9fa9;
+}
+
+.content a:hover {
+  color: #66c6d0;
+}
+
+.intro {
+  height: 70vh;
+  padding: 0;
+
+  text-align: center;
+
+  color: white;
+}
+
+.intro h1 {
+  font-family: 'Audiowide', cursive;
+  font-size: 7vw;
+  font-weight: lighter;
+
+  color: rgba(212, 237, 255, 0.95);
+}
+
+.intro h1 span {
+  font-size: 6vw;
+}
+
+.intro h2 {
+  font-family: 'Audiowide', cursive;
+  font-size: 9vw;
+  text-transform: uppercase;
+
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .intro h1 {
+    font-size: 3vw;
+  }
+
+  .intro h1 span {
+    font-size: 2vw;
+  }
+
+  .intro h2 {
+    font-size: 5vw;
+  }
+}
+
+.progress {
+  height: 22px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  padding-left: 5px;
+
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+
+  background-color: #3c9fa9;
+  line-height: 22px;
+}
+
+.image-overlay {
+  background-color: rgba(60, 160, 210, 0.80);
+  background: linear-gradient(to bottom right, rgba(19, 129, 193, 0.9), rgba(73, 218, 218, 0.70))
+}
+
+.image-overlay h3 {
+  color: white;
+}
+
+.image-overlay h4 {
+  color: white;
+}
+
+.image-overlay p {
+  color: white;
+}
+
+.image-overlay a {
+  color: #c7faff;
+}
+
+.image-overlay a:hover {
+  color: white;
+}
+
+.remove-margin-bot {
+  margin-bottom: 0;
+}
+
+.remove-margin-top {
+  margin-top: 0;
+}
+
+.sub-heading {
+  font-size: 16px;
+}
+
+.pgp-block {
+  max-width: 620px;
+  max-height: 320px;
+  width: 80vw;
+
+  border: 1px solid #3c9fa9;
+  color: #153c40;
+  overflow: auto;
+}
+
+.img-thumbnail {
+  border: 1px solid #3c9fa9;
+}
+
+.shrink-height {
+  line-height: 1.2;
+}
+
+@media (min-width: 1640px) {
+  .col-xl-4 {
+    width: 33.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .col-xl-8 {
+    width: 66.66666667%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+footer {
+  padding: 1% 5%;
+
+  font-weight: bold;
+  text-align:center;
+
+  background-color: #3c9fa9;
+  color: white;
+}
