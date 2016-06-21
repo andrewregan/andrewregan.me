@@ -24,16 +24,7 @@
   .hide-until-load {
     visibility: hidden;
   }
-  </style>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans" media="none" onload="if(media!='all')media='all'">
-  <link rel="stylesheet" href="css/bootstrap.min.css" media="none" onload="if(media!='all')media='all'">
-  <link rel="stylesheet" href="css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'">
-  <link rel="stylesheet" href="css/github-corners.min.css" media="none" onload="if(media!='all')media='all'">
-  <link rel="stylesheet" href="css/default.css" media="none" onload="if(media!='all')media='all'">
-
-  <!-- prevent images from blocking css load -->
-  <style>
   /* big images */
   @media (min-device-width:960px) {
     section:nth-of-type(1) {
@@ -349,6 +340,51 @@ D1nECHQKPA+l/aeg
   <footer>
     Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2016 Andrew Regan
   </footer>
+
+  <noscript id="deferred-styles">
+    <link class="wait-for-load" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans">
+    <link class="wait-for-load" rel="stylesheet" href="css/bootstrap.min.css">
+    <link class="wait-for-load" rel="stylesheet" href="css/font-awesome.min.css">
+    <link class="wait-for-load" rel="stylesheet" href="css/github-corners.min.css">
+    <link class="wait-for-load" rel="stylesheet" href="css/default.css">
+  </noscript>
+  <script>
+    var showContent = function() {
+      cssWaitCount++;
+      console.log('Stylesheet ' + cssWaitCount + " / " + cssWaitTotal + 'loaded');
+
+      if (cssWaitCount >= cssWaitTotal) {
+        var showElements = document.querySelectorAll(".hide-until-load");
+
+        for (var i = 0; i < showElements.length; i++) {
+          showElements[i].style.visibility = 'visible';
+        }
+      }
+    }
+
+    var loadDeferredStyles = function() {
+      var addStylesNode = document.getElementById("deferred-styles");
+      var replacement = document.createElement("div");
+
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement)
+      addStylesNode.parentElement.removeChild(addStylesNode);
+
+      var waitElements = document.querySelectorAll(".wait-for-load");
+      cssWaitTotal = waitElements.length;
+      cssWaitCount = 0;
+      for (var i = 0; i < waitElements.length; i++) {
+        waitElements[i].addEventListener("load", showContent);
+      }
+    };
+
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+
+
+  </script>
 
   <script async src="js/default.js"></script>
 </body>
