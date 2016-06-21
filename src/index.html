@@ -24,10 +24,12 @@
   <meta name="description" content="Andrew Regan is a computer programmer and a college student at Penn State University who is studying for a major in Security and Risk Analysis.">
   <meta name="author" content="Andrew Regan">
 
-  <link href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- non-blocking css -->
+  <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+
   <link rel="stylesheet" href="css/default.css">
 </head>
 <body>
