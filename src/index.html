@@ -24,27 +24,48 @@
   <meta name="description" content="Andrew Regan is a computer programmer and a college student at Penn State University who is studying for a major in Security and Risk Analysis.">
   <meta name="author" content="Andrew Regan">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans">
+  <!-- hide body until default.css is loaded -->
+  <style>
+  body {
+    visibility: hidden;
+  }
 
-  <!-- non-blocking css -->
-  <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+  .hide-until-load {
+    visibility: hidden;
+  }
+  </style>
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
   <link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/default.css" as="style" onload="this.rel='stylesheet'">
 
-  <link rel="stylesheet" href="css/default.css">
+  <!-- prevent images from blocking css load -->
+  <style>
+  section:nth-of-type(1) {
+    background: url('img/lion.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  section:nth-of-type(3) {
+    background: url('img/state-house.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  </style>
 </head>
 <body>
   <a href="https://github.com/andrewregan/andrewregan.me/" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 
   <section class="intro">
     <div class="content image-overlay">
-      <h2>Student Developer</h2>
-      <h1>Andrew Regan <span>.me</span></h1>
+      <h2 class="hide-until-load">Student Developer</h2>
+      <h1 class="hide-until-load">Andrew Regan <span>.me</span></h1>
     </div>
   </section>
 
   <section>
     <dev class="content container">
-      <div class="row">
+      <div class="row hide-until-load">
         <div class="col-md-4">
           <h3><i class="fa fa-user" aria-hidden="true"></i> About</h3>
         </div>

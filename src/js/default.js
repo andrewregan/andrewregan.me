@@ -22,6 +22,18 @@ function updateEmail(id) {
     link.setAttribute('href', "mailto:" + reverseEmail('moc.liamg', 'nagersemaj.a'));
 }
 
+function showContent() {
+    var myElements = document.querySelectorAll(".hide-until-load");
+
+    for (var i = 0; i < myElements.length; i++) {
+        myElements[i].style.visibility = 'visible';
+    }
+}
+
 window.onscroll = function() {
     updateEmail('email');
+}
+
+window.onload = function() {
+    showContent();
 }
