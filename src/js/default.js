@@ -9,3 +9,18 @@ function selectText(targetId) {
         window.getSelection().addRange(range);
     }
 }
+
+function reverseEmail(site, addr) {
+    var str = site + '@' + addr;
+    return str.split("").reverse().join("");
+}
+
+function updateEmail(id) {
+    var link = document.getElementById(id);
+
+    link.innerHTML = reverseEmail('moc.liamg', 'nagersemaj.a');
+}
+
+window.onscroll = function() {
+    updateEmail('email');
+}
