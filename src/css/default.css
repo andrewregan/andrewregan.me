@@ -175,17 +175,12 @@ section {
 
 .pgp-block {
   max-height: 320px;
+  max-width: 620px;
   width: 80vw;
 
   border: 1px solid #3c9fa9;
   color: #153c40;
   overflow: auto;
-}
-
-@media (min-width: 640px) {
-  .pgp-block {
-    max-width: 620px;
-  }
 }
 
 .img-thumbnail {
