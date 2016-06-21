@@ -15,6 +15,14 @@ function reverseEmail(site, addr) {
     return str.split("").reverse().join("");
 }
 
+var showContent = function() {
+    var showElements = document.querySelectorAll(".hide-until-load");
+
+    for (var i = 0; i < showElements.length; i++) {
+        showElements[i].style.visibility = 'visible';
+    }
+}
+
 function updateEmail(id) {
     var link = document.getElementById(id);
 

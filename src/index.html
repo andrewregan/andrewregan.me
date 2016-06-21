@@ -17,39 +17,50 @@
 
   <!-- hide body until default.css is loaded -->
   <style>
-    body {
-      visibility: hidden;
+  body {
+    visibility: hidden;
+  }
+
+  .hide-until-load {
+    visibility: hidden;
+  }
+
+  .wf-active .hide-until-load, .wf-inactive .hide-until-load {
+    visibility: visible;
+  }
+  </style>
+
+  <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/github-corners.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/default.css" as="style" onload="this.rel='stylesheet'">
+
+  <style>
+  /* big images */
+  @media (min-device-width:960px) {
+    section:nth-of-type(1) {
+      background: url('img/lion.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
-    .hide-until-load {
-      visibility: hidden;
+    section:nth-of-type(3) {
+      background: url('img/state-house.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+  }
+
+  /* small images */
+  @media (max-device-width:960px) {
+    section:nth-of-type(1) {
+      background: url('img/lion-sm.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
-    /* big images */
-    @media (min-device-width:960px) {
-      section:nth-of-type(1) {
-        background: url('img/lion.jpg') no-repeat center center fixed;
-        background-size: cover;
-      }
-
-      section:nth-of-type(3) {
-        background: url('img/state-house.jpg') no-repeat center center fixed;
-        background-size: cover;
-      }
+    section:nth-of-type(3) {
+      background: url('img/state-house-sm.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
-
-    /* small images */
-    @media (max-device-width:960px) {
-      section:nth-of-type(1) {
-        background: url('img/lion-sm.jpg') no-repeat center center fixed;
-        background-size: cover;
-      }
-
-      section:nth-of-type(3) {
-        background: url('img/state-house-sm.jpg') no-repeat center center fixed;
-        background-size: cover;
-      }
-    }
+  }
   </style>
 </head>
 <body>
@@ -341,60 +352,27 @@ D1nECHQKPA+l/aeg
     Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2016 Andrew Regan
   </footer>
 
-  <noscript id="deferred-styles">
-    <link class="wait-for-load" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans">
-    <link class="wait-for-load" rel="stylesheet" href="css/bootstrap.min.css">
-    <link class="wait-for-load" rel="stylesheet" href="css/font-awesome.min.css">
-    <link class="wait-for-load" rel="stylesheet" href="css/github-corners.min.css">
-    <link class="wait-for-load" rel="stylesheet" href="css/default.css">
-  </noscript>
-
-  <!-- unhide elements if no javascript -->
+  <!-- make everything visible if no javascript -->
   <noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Audiowide|Open+Sans" as="style" onload="this.rel='stylesheet'">
     <style>
-      .hide-until-load {
-        visibility: visible;
-      }
+    .hide-until-load {
+      visibility: visible;
+    }
     </style>
   </noscript>
 
-  <!-- load javascript asynchronously -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
   <script>
-    var showContent = function() {
-      cssWaitCount++;
-      // console.log('Stylesheet ' + cssWaitCount + " / " + cssWaitTotal + ' loaded');
-
-      if (cssWaitCount >= cssWaitTotal) {
-        var showElements = document.querySelectorAll(".hide-until-load");
-
-        for (var i = 0; i < showElements.length; i++) {
-          showElements[i].style.visibility = 'visible';
-        }
-      }
+  WebFont.load({
+    google: {
+      families: ['Audiowide', 'Open Sans']
     }
-
-    var loadDeferredStyles = function() {
-      var addStylesNode = document.getElementById("deferred-styles");
-      var replacement = document.createElement("div");
-
-      replacement.innerHTML = addStylesNode.textContent;
-      document.body.appendChild(replacement)
-      addStylesNode.parentElement.removeChild(addStylesNode);
-
-      var waitElements = document.querySelectorAll(".wait-for-load");
-      cssWaitTotal = waitElements.length;
-      cssWaitCount = 0;
-      for (var i = 0; i < waitElements.length; i++) {
-        waitElements[i].addEventListener("load", showContent);
-      }
-    };
-
-    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-        webkitRequestAnimationFrame || msRequestAnimationFrame;
-    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
+  });
   </script>
 
+  <!-- load javascript asynchronously -->
+  <script async src="js/csspreload.js"></script>
   <script async src="js/default.js"></script>
 </body>
 </html>
