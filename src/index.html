@@ -17,39 +17,39 @@
 
   <!-- hide body until default.css is loaded -->
   <style>
-  body {
-    visibility: hidden;
-  }
-
-  .hide-until-load {
-    visibility: hidden;
-  }
-
-  /* big images */
-  @media (min-device-width:960px) {
-    section:nth-of-type(1) {
-      background: url('img/lion.jpg') no-repeat center center fixed;
-      background-size: cover;
+    body {
+      visibility: hidden;
     }
 
-    section:nth-of-type(3) {
-      background: url('img/state-house.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-  }
-
-  /* small images */
-  @media (max-device-width:960px) {
-    section:nth-of-type(1) {
-      background: url('img/lion-sm.jpg') no-repeat center center fixed;
-      background-size: cover;
+    .hide-until-load {
+      visibility: hidden;
     }
 
-    section:nth-of-type(3) {
-      background: url('img/state-house-sm.jpg') no-repeat center center fixed;
-      background-size: cover;
+    /* big images */
+    @media (min-device-width:960px) {
+      section:nth-of-type(1) {
+        background: url('img/lion.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      section:nth-of-type(3) {
+        background: url('img/state-house.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
     }
-  }
+
+    /* small images */
+    @media (max-device-width:960px) {
+      section:nth-of-type(1) {
+        background: url('img/lion-sm.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      section:nth-of-type(3) {
+        background: url('img/state-house-sm.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
   </style>
 </head>
 <body>
@@ -348,10 +348,21 @@ D1nECHQKPA+l/aeg
     <link class="wait-for-load" rel="stylesheet" href="css/github-corners.min.css">
     <link class="wait-for-load" rel="stylesheet" href="css/default.css">
   </noscript>
+
+  <!-- unhide elements if no javascript -->
+  <noscript>
+    <style>
+      .hide-until-load {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
+
+  <!-- load javascript asynchronously -->
   <script>
     var showContent = function() {
       cssWaitCount++;
-      console.log('Stylesheet ' + cssWaitCount + " / " + cssWaitTotal + 'loaded');
+      // console.log('Stylesheet ' + cssWaitCount + " / " + cssWaitTotal + ' loaded');
 
       if (cssWaitCount >= cssWaitTotal) {
         var showElements = document.querySelectorAll(".hide-until-load");
@@ -382,8 +393,6 @@ D1nECHQKPA+l/aeg
         webkitRequestAnimationFrame || msRequestAnimationFrame;
     if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
       else window.addEventListener('load', loadDeferredStyles);
-
-
   </script>
 
   <script async src="js/default.js"></script>
