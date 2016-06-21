@@ -77,7 +77,6 @@ section {
 }
 
 .intro {
-  height: 70vh;
   padding: 0;
 
   text-align: center;
@@ -117,6 +116,10 @@ section {
   .intro h2 {
     font-size: 5vw;
   }
+}
+
+.intro > .content {
+  padding: 35% 0 35% 0;
 }
 
 .progress {
