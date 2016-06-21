@@ -84,6 +84,12 @@ section {
   color: white;
 }
 
+@media (min-width: 640px) {
+  .intro {
+    height: 70vh;
+  }
+}
+
 .intro h1 {
   font-family: 'Audiowide', cursive;
   font-size: 7vw;
@@ -118,8 +124,10 @@ section {
   }
 }
 
-.intro > .content {
-  padding: 35% 0 35% 0;
+@media (max-width: 640px) {
+  .intro > .content {
+    padding: 35% 0 35% 0;
+  }
 }
 
 .progress {
