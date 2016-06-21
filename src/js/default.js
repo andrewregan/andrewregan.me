@@ -19,6 +19,7 @@ function updateEmail(id) {
     var link = document.getElementById(id);
 
     link.innerHTML = reverseEmail('moc.liamg', 'nagersemaj.a');
+    link.setAttribute('href', "mailto:" + reverseEmail('moc.liamg', 'nagersemaj.a'));
 }
 
 window.onscroll = function() {
